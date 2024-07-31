@@ -1,0 +1,20 @@
+.responses {
+    padding: 20px;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .responseItem {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+  
+  .responseItem p {
+    margin: 0;
+  }
+  

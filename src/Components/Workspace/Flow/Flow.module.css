@@ -1,0 +1,94 @@
+.container {
+  display: flex;
+  background-color: rgba(24, 24, 27, 1);
+}
+.leftContainer {
+  width: 25%;
+  min-height: 88vh;
+  margin: 15px 15px 15px 15px; /* top right bottom left */
+  background: #121212;
+  border-radius: 10px;
+}
+.rightContainer {
+  width: 75%;
+  min-height: 88vh;
+}
+.mainbody{
+  margin: 55px 15px 15px 15px;
+}
+.bubbles{
+  margin: 15px 15px 15px 15px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.inputs{
+  margin: 15px 15px 15px 15px;
+}
+.text{
+  background-color: rgba(24, 24, 27, 1) ;
+  height: 40px;
+  width: 120px;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+h4{
+  margin-bottom: 1rem;
+}
+.inputfield{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.heading{
+display: flex;
+justify-content: center;
+align-items: center;
+margin-top: 2rem;
+}
+.start{
+  
+  background: #121212;
+  min-height: 40px;
+  min-width: 350px;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  display: flex;
+  padding-left: 1.5rem;
+  align-items: center;
+  cursor: pointer;
+}
+.inputdata{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1.5rem;
+}
+.field{
+  background: #121212;
+  min-height: 40px;
+  min-width: 350px;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+ 
+  padding-left: 1.5rem;
+
+  cursor: pointer;
+}
+.field input {
+  border-radius: 5px;
+  background: none;
+  width: 90%;
+  height: 35px;
+  border: none;
+  background-color: rgba(55, 55, 62, 1);
+  color: #ffffff;
+  padding: 5px 10px;
+  margin: 0px 15px 25px 0px;
+  flex-basis: 20%;
+}
+h5{
+  margin: 15px 15px 15px 0px; /* top right bottom left */
+}

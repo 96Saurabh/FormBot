@@ -1,0 +1,45 @@
+.themecontanier {
+  display: flex;
+}
+.themediv {
+  width: 20%;
+  height: 88vh;
+}
+.colordiv {
+  width: 80%;
+  height: 88vh;
+  /* margin: 80px 250px 50px 250px; top right bottom left */
+}
+.title {
+  padding: 35px;
+}
+.theme {
+  margin: 35px 10px 13px 30px; /* top right bottom left */
+  cursor: pointer;
+}
+.color {
+  margin: 80px 250px 50px 250px; /* top right bottom left */
+}
+
+.formbotleft {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.formbotright {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+.formbotbubboles {
+  background-color: rgba(24, 24, 27, 1);
+  height: 40px;
+  width: 120px;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: aliceblue;
+}

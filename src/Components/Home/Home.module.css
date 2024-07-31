@@ -1,0 +1,58 @@
+.navbar {
+  display: flex;
+  margin: 30px 100px 50px 100px; /* top right bottom left */
+  gap: 55px;
+  font-weight: bold;
+}
+.logo {
+  margin: 0px 600px 00px 000px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.signin {
+  background-color: rgba(24, 24, 27, 1);
+  border: 1px solid rgba(26, 95, 255, 1);
+  height: 40px;
+  width: 120px;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: rgba(26, 95, 255, 1);
+}
+.create {
+  background-color: rgba(26, 95, 255, 1);
+  height: 40px;
+  width: 220px;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: #ffffff;
+}
+.centertitle{
+    
+}
+.title {
+  display: flex;
+  gap: 55px;
+  margin: 80px 100px 50px 100px; /* top right bottom left */
+}
+h1 {
+    background: linear-gradient(90deg, rgba(75, 131, 255, 1) 0%, rgba(183, 148, 244, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  font-size: 60px;
+  padding-left: 150px;
+  /* margin-bottom: 5px; */
+}
+h3 {
+}
+.header{
+    margin: 30px 100px 50px 100px; /* top right bottom left */
+}

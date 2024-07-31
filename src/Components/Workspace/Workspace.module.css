@@ -1,0 +1,124 @@
+/* Centering container */
+.centercontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Dropdown button styling */
+.dropbtn {
+  border-radius: 14px;
+  border: 1px solid #ffffff;
+  background: none;
+  color: #ffffff;
+  padding: 12px;
+  font-size: 12px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+/* Dropdown container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown content styling */
+.dropdowncontent {
+  display: none;
+  position: absolute;
+  top: 100%; /* Position below the button */
+  left: 0;
+  border-radius: 14px;
+  border: 1px solid #ffffff;
+  background-color: rgba(0, 0, 0, 0.8); /* Ensure background contrasts with text */
+  color: #ffffff;
+  min-width: 200px; /* Adjust as needed */
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 10; /* Ensure dropdown appears above other content */
+}
+
+/* Dropdown link styling */
+.dropdowncontent a {
+  color: #ffffff;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 14px; /* Adjust font size if needed */
+}
+
+/* Hover effect for dropdown items */
+.dropdowncontent a:hover {
+  color: rgba(255, 165, 76, 1); /* Change color on hover */
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdowncontent {
+  display: block;
+}
+
+/* Optional: Show dropdown when clicking (if needed) */
+.dropdown .dropbtn:focus + .dropdowncontent {
+  display: block;
+}
+
+/* Other styles */
+.foldercontainer {
+  margin: 10px 60px 13px 150px; /* top right bottom left */
+  display: flex;
+  gap: 2rem;
+}
+
+.topcontainer {
+  margin: 25px 60px 10px 150px; /* top right bottom left */
+  display: flex;
+  gap: 2rem;
+}
+
+.folder {
+  padding: 10px 20px;
+  border: none;
+  max-width: 220px;
+  height: 40px;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  cursor: pointer;
+  gap: 1rem;
+}
+
+.subfolder {
+  padding: 10px 20px;
+  border: none;
+  max-width: 220px;
+  height: 40px;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  cursor: pointer;
+  gap: 1rem;
+}
+
+.createtypebot {
+  margin-top: 2rem;
+  padding: 10px 20px;
+  border: none;
+  max-width: 220px;
+  height: 240px;
+  border-radius: 15px;
+  background-color: #1a5fff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.createnewfolder {
+  margin-top: 2rem;
+  padding: 10px 20px;
+  border: none;
+  min-width: 190px;
+  height: 240px;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #fff;
+  cursor: pointer;
+}

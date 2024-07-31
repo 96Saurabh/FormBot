@@ -1,0 +1,38 @@
+.container {
+  margin: 45px 60px 13px 100px; /* top right bottom left */
+}
+.headerinfo {
+  margin: 45px 20px 50px 220px;
+  border-radius: 15px;
+  display: flex;
+  gap: 10rem;
+}
+.header {
+  height: 100px;
+  width: 150px;
+  background-color: rgba(50, 50, 50, 1);
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+.emptydata {
+  color: rgba(105, 105, 105, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
