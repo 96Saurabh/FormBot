@@ -5,6 +5,9 @@ import RegisterPage from "./Pages/RegisterPage";
 import WorkspacePage from "./Pages/WorkspacePage";
 import ProtectedRoute from "./helper/ProtectedRoute";
 import NotFoundPage from "./Pages/NotFoundPage";
+import Share from "./Components/Share/Share";
+import SettingPage from "./Pages/SettingPage";
+import FormPage from "./Pages/FormPage";
 
 function App() {
   return (
@@ -12,12 +15,21 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/share" element={<Share />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/*" element={<NotFoundPage />} />
           <Route
             path="/workspace"
             element={<ProtectedRoute Component={WorkspacePage} />}
+          />
+          <Route
+            path="/FormPage"
+            element={<ProtectedRoute Component={FormPage} />}
+          />
+          <Route
+            path="/setting"
+            element={<ProtectedRoute Component={SettingPage} />}
           />
         </Routes>
       </BrowserRouter>

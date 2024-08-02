@@ -1,73 +1,103 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import style from "./Register.module.css";
-import { Link, useNavigate } from "react-router-dom";
-import toast from "react-hot-toast";
-import axios from "axios";
-const URL = "http://localhost:8080";
+import { Link } from "react-router-dom";
+import loginleft from "./images/loginleft.png";
+import loginbottom from "./images/loginbottom.png";
+import loginright from "./images/loginright.png";
+import { registerUser } from "../../api/auth.api";
+
 function Register() {
-  const [name, setName] = useState("");
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleChange = (event) => {
+    setFormData({ ...formData, [event.target.name]: event.target.value });
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const { name, email, password,  } = formData;
+
+    if (!name || !email || !password ) {
+      alert("Fields can't be empty");
+      return;
+    }
 
     try {
-      const res = await axios.post(`${URL}/api/v1/auth/register`, {
-        name,
-        email,
-        password,
-      });
-      if (res.data.success) {
-        toast.success(res.data.message);
+      const result = await registerUser(formData);
+      if (result) {
         navigate("/login");
       } else {
-        toast.error(res.data.message);
+        alert("Registration failed. Please try again.");
       }
     } catch (error) {
-      console.log(error);
-      toast.error("Something went wrong");
+      alert("An error occurred during registration. Please try again.");
     }
   };
 
   return (
     <div>
       <div className={style.container}>
+        <div className={style.leftimg}>
+          <img src={loginleft} alt="header" style={{ height: "150px", width: "150px" }} />
+        </div>
         <form className={style.logindata} onSubmit={handleSubmit}>
           <div>
             <label>Username</label>
             <input
+              name="name"
+              onChange={handleChange}
               type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              placeholder="Name"
             />
           </div>
           <div>
             <label>Email</label>
             <input
+              name="email"
+              onChange={handleChange}
               type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Email"
             />
           </div>
           <div>
             <label>Password</label>
             <input
+              name="password"
+              onChange={handleChange}
               type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Password"
             />
           </div>
           <div>
             <label>Confirm Password</label>
-            <input type="password" />
+            <input
+              name="confirmPassword"
+              onChange={handleChange}
+              type="password"
+              placeholder="Confirm Password"
+            />
           </div>
-          <button type="submit">Register Now</button>
+          <button type="submit" className={style.button}>
+            Register Now
+          </button>
           <h4>
             Already have an account? <Link to="/login">Login</Link>
           </h4>
         </form>
+        <div className={style.rightside}>
+          <img src={loginright} alt="header" style={{ height: "250px", width: "150px" }} />
+        </div>
+      </div>
+      <div className={style.bottom}>
+        <img src={loginbottom} alt="header" style={{ height: "150px", width: "250px" }} />
       </div>
     </div>
   );

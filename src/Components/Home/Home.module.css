@@ -10,6 +10,9 @@
   align-items: center;
   gap: 20px;
 }
+/* .Link a{
+  text-decoration: none;
+} */
 .signin {
   background-color: rgba(24, 24, 27, 1);
   border: 1px solid rgba(26, 95, 255, 1);
@@ -23,36 +26,81 @@
   cursor: pointer;
   color: rgba(26, 95, 255, 1);
 }
-.create {
-  background-color: rgba(26, 95, 255, 1);
-  height: 40px;
-  width: 220px;
-  margin-bottom: 1rem;
-  border-radius: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  color: #ffffff;
-}
-.centertitle{
-    
-}
+
 .title {
   display: flex;
-  gap: 55px;
-  margin: 80px 100px 50px 100px; /* top right bottom left */
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
 }
+
+.leftimg,
+.rightimg {
+  flex-shrink: 0;
+}
+
+.centertitle {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.create {
+  
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+}
+
 h1 {
-    background: linear-gradient(90deg, rgba(75, 131, 255, 1) 0%, rgba(183, 148, 244, 1) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  font-size: 60px;
-  padding-left: 150px;
-  /* margin-bottom: 5px; */
+  margin: 10px 0;
 }
+
 h3 {
+  margin: 20px 0;
+  font-size: 22px;
 }
-.header{
-    margin: 30px 100px 50px 100px; /* top right bottom left */
+
+h1 {
+  background: linear-gradient(
+    90deg,
+    rgba(75, 131, 255, 1) 0%,
+    rgba(183, 148, 244, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 50px;
+}
+
+.header {
+  margin: 30px 100px 50px 100px; /* top right bottom left */
+}
+.leftimg {
+  padding: 30px 100px 50px 10px;
+}
+.rightimg {
+  padding: 30px 10px 50px 100px;
+}
+h2{
+  font-size: 50px;
+  margin: 10px 0;
+}
+.details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  margin: 0 auto;
+}
+h4{
+  color: rgba(160, 174, 192, 1);
+}
+.bottompage{
+  padding: 15px;
+  height: 100vh;
 }

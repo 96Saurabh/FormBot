@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import axios from 'axios';
 import style from './Flow.module.css';
 import { LuFilm } from 'react-icons/lu';
 import { PiChatLight } from 'react-icons/pi';
@@ -13,6 +12,7 @@ import { CiCalendarDate } from 'react-icons/ci';
 import { FaRegStar } from 'react-icons/fa6';
 import { IoMdCheckboxOutline } from 'react-icons/io';
 import { ImFlag } from 'react-icons/im';
+
 
 const inputFields = {
   text: { label: 'Text', placeholder: 'Enter your text', type: 'text' },
@@ -59,20 +59,11 @@ function Flow() {
     setFields(newFields);
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await axios.post('http://localhost:8080/api/v1/chat/chats', { fields });
-      console.log('Flow created:', res.data);
-      setFields([]);
-      setFieldCounts({});
-    } catch (error) {
-      console.error('Error creating flow:', error);
-    }
-  };
+
 
   return (
     <div>
+    
       <div className={style.container}>
         <div className={style.leftContainer}>
           <div className={style.mainbody}>
@@ -125,7 +116,7 @@ function Flow() {
               <ImFlag /> Start
             </div>
           </div>
-          <form onSubmit={handleSubmit}>
+          <form>
             {fields.map((field, index) => (
               <div className={style.inputdata} key={index}>
                 <div className={style.field}>

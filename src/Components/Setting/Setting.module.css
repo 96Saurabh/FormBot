@@ -1,15 +1,15 @@
 /* login.module.css */
 .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px;
-  height: 82vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
   }
   
   .logindata {
     padding: 20px;
     border-radius: 8px;
+    
     text-align: center;
   }
   
@@ -51,16 +51,11 @@
   }
   
   h4 a {
-    color: #1A5FFF;
+    color: #00f;
     text-decoration: none;
   }
   
   h4 a:hover {
     text-decoration: underline;
   }
-  .link {
-    color: #131313;
-  }
-  .bottom{
-    margin: 00px 00px 00px 750px; /* top right bottom left */
-  }
+  
