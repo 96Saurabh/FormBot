@@ -1,5 +1,5 @@
+import Formbot from "../Components/FormBot/Formbot"
 
-import Formbot from '../Components/FormBot/Formbot'
 
 function FromBotPage() {
   return (

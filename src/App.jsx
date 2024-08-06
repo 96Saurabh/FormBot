@@ -8,6 +8,9 @@ import NotFoundPage from "./Pages/NotFoundPage";
 import Share from "./Components/Share/Share";
 import SettingPage from "./Pages/SettingPage";
 import FormPage from "./Pages/FormPage";
+import FromBotPage from "./Pages/FormBotPage";
+import Response from "./Components/Response/Response";
+import Theme from "./Components/Workspace/Theme/Theme";
 
 function App() {
   return (
@@ -18,6 +21,7 @@ function App() {
           <Route path="/share" element={<Share />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="/form/:formId" element={<FromBotPage />} />
           <Route path="/*" element={<NotFoundPage />} />
           <Route
             path="/workspace"
@@ -26,6 +30,14 @@ function App() {
           <Route
             path="/FormPage"
             element={<ProtectedRoute Component={FormPage} />}
+          />
+           <Route
+            path="/workspace/response"
+            element={<ProtectedRoute Component={Response} />}
+          />
+          <Route
+            path="/workspace/theme"
+            element={<ProtectedRoute Component={Theme} />}
           />
           <Route
             path="/setting"

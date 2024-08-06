@@ -1,10 +1,31 @@
-import React from "react";
-import Navbar from "../Navbar/Navbar";
+import { Link } from "react-router-dom";
 import style from "./Response.module.css";
+import { RxCross1 } from "react-icons/rx";
 
 function Response() {
   return (
     <div>
+        <div className={style.navbar}>
+       
+       <div className={style["navbar-center"]}>
+         <Link to="/FormPage">Flow</Link>
+         <Link to="/workspace/theme">Theme</Link>
+         <Link to="/workspace/response">Response</Link>
+       </div>
+       <div className={style["navbar-end"]}>
+         <span className={style.share} >
+           Share
+         </span>
+         <span className={style.save}>
+           Save
+         </span>
+         <Link to="/workspace">
+           <span>
+             <RxCross1 style={{ color: "red" }} />
+           </span>
+         </Link>
+       </div>
+     </div>
       <div className={style.container}>
         <div className={style.headerinfo}>
           <div className={style.header}>
@@ -20,31 +41,21 @@ function Response() {
               <tbody>
                 <tr>
                   <th></th>
-                  <th>Submitted Date</th>
-                  <th>Contact</th>
-                  <th>Country</th>
-                  <th>Country</th>
-                  <th>Country</th>
-                  <th>Country</th>
+                  <th>#</th>
+                  <th>Form Name</th>
+                  <th>Submitted At</th>
+                  <th>lable</th>
+                  
                 </tr>
                 <tr>
                   <td>1</td>
-                  <td>Alfreds Futterkiste</td>
-                  <td>Maria Anders</td>
-                  <td>Germany</td>
-                  <td>Germany</td>
-                  <td>Germany</td>
-                  <td>Germany</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>value</td>
+                  
                 </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Centro comercial Moctezuma</td>
-                  <td>Francisco Chang</td>
-                  <td>Mexico</td>
-                  <td>Mexico</td>
-                  <td>Mexico</td>
-                  <td>Mexico</td>
-                </tr>
+                
               </tbody>
             </table>
           </div>

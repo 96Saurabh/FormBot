@@ -4,8 +4,8 @@ const backendUrl = "http://localhost:8000/api/v1/from";
 export const createChat = async (chatPostPayload) => {
   try {
     const reqUrl = `${backendUrl}/create-chat`;
-    const token = JSON.parse(localStorage.getItem("token")); // Retrieve the token from local storage
-    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    const token = JSON.parse(localStorage.getItem("token"));
+    axios.defaults.headers.common["Authorization"] = token;
     const response = await axios.post(reqUrl, chatPostPayload);
     console.log('Response of createChat:', response);
     return response.data;
@@ -16,12 +16,10 @@ export const createChat = async (chatPostPayload) => {
 };
 export const getChats = async () => {
   try {
-    const token = localStorage.getItem("token"); // Retrieve the token from local storage
-    const response = await axios.get(`${backendUrl}/get-chats`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const reqUrl = `${backendUrl}/create-chat`;
+    const token = JSON.parse(localStorage.getItem("token"));
+    axios.defaults.headers.common["Authorization"] = token;
+    const response = await axios.get(`${reqUrl}/get-chats`);
     return response.data;
   } catch (error) {
     console.error("Error fetching chats", error);
