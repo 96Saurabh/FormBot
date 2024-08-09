@@ -11,7 +11,9 @@ import { IoMdCheckboxOutline } from 'react-icons/io';
 import { ImFlag } from 'react-icons/im';
 import { RxCross1 } from 'react-icons/rx';
 import axios from 'axios';
-const URL="http://localhost:8000/api/v1/form"
+
+const URL="https://formbot-backend-5fip.onrender.com/api/v1/form"
+
 const inputFields = {
   text: { label: 'Text', placeholder: 'Enter your text', type: 'text' },
   image: { label: 'Image', placeholder: 'Enter Image URL', type: 'url' },
@@ -97,7 +99,7 @@ function Flow() {
 
         
 
-        const response = await axios.get(`http://localhost:8000/api/v1/form/shareable-link/${formId}`);
+        const response = await axios.get(`https://formbot-backend-5fip.onrender.com/api/v1/form/shareable-link/${formId}`);
         const shareableLink = response.data.shareableLink;
         navigator.clipboard.writeText(shareableLink)
           .then(() => {
@@ -107,7 +109,7 @@ function Flow() {
             console.error('Error copying link to clipboard:', error);
           });
 
-          // Increment view count when the shareable link is requested 
+         
         await axios.get(`${URL}/form/increment-views/${formId}`);
       } catch (error) {
         console.error('Error fetching shareable link:', error);

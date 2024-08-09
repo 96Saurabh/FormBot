@@ -1,5 +1,5 @@
 import axios from "axios";
-const backendUrl = `http://localhost:8000/api/v1/chat`;
+const backendUrl = `https://formbot-backend-5fip.onrender.com/api/v1/chat`;
 
 // this is the folder api
 export const createFolder = async (chatPostPayload) => {
@@ -54,5 +54,31 @@ export const getFormsByFolder = async (folderId) => {
   } catch (error) {
     console.error("Error fetching forms by folder:", error);
     throw error.response.data;
+  }
+};
+
+// api/chat.api.js
+
+export const getForms = async (folderId) => {
+  try {
+    const response = await fetch(`/api/forms/${folderId}`);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching forms:", error);
+    throw error;
+  }
+};
+
+// api/chat.api.js
+
+export const getFormById = async (formId) => {
+  try {
+    const response = await fetch(`/api/forms/${formId}`);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching form:", error);
+    throw error;
   }
 };

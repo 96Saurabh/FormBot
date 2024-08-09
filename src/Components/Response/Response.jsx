@@ -4,21 +4,54 @@ import style from "./Response.module.css";
 import { Link } from "react-router-dom";
 import { RxCross1 } from "react-icons/rx";
 
-const URL = "http://localhost:8000/api/v1";
+const URL = "https://formbot-backend-5fip.onrender.com/api/v1";
 
 function Response() {
   const [responses, setResponses] = useState([]);
   const [loading, setLoading] = useState(true);
   const [labels, setLabels] = useState([]);
-  const [views, setViews] = useState(0); 
+  const [views, setViews] = useState(0);
+  const [formId, setFormId] = useState(null);
+
+  useEffect(() => {
+    const fetchFormId = async () => {
+      try {
+        const response = await axios.get(`${URL}/form`);
+        // Assuming you want the first form in the list
+        if (response.data.length > 0) {
+          setFormId(response.data[0]._id);
+        }
+      } catch (error) {
+        console.error("Error fetching form ID:", error);
+      }
+    };
+
+    fetchFormId();
+  }, []);
+
+  useEffect(() => {
+    const fetchFormDetails = async () => {
+      if (formId) {
+        try {
+          const response = await axios.get(`${URL}/form/${formId}`);
+          setViews(response.data.views);
+          console.log("Form details fetched:", response.data);
+        } catch (error) {
+          console.error("Error fetching form details:", error);
+        }
+      }
+    };
+
+    fetchFormDetails();
+  }, [formId]);
+
   useEffect(() => {
     const fetchResponses = async () => {
       try {
         const response = await axios.get(`${URL}/response/responses`);
-        console.log("Fetched responses:", response.data); // Check the structure of the data
+        console.log("Fetched responses:", response.data);
         setResponses(response.data);
 
-        // Extract unique labels
         const allLabels = new Set();
         response.data.forEach((res) => {
           res.responses.forEach((r) => {
@@ -30,11 +63,6 @@ function Response() {
         const uniqueLabels = Array.from(allLabels);
         console.log("Extracted labels:", uniqueLabels);
         setLabels(uniqueLabels);
-
-        // Assuming views are part of the response
-        if (response.data.length > 0) {
-          setViews(response.data[0].views); // Get views from the first form
-        }
       } catch (error) {
         console.error("Error fetching responses:", error);
       } finally {
@@ -72,10 +100,10 @@ function Response() {
         <div className={style.headerinfo}>
           <div className={style.header}>
             <h4>Views</h4>
-            <h4>{views}</h4> 
+            <h4>{views}</h4>
           </div>
-          <div className={style.header}>Start</div>
-          <div className={style.header}>Completion rate</div>
+          <div className={style.header}><h4>Start</h4></div>
+          <div className={style.header}><h4>Completion rate</h4></div>
         </div>
         <div className={style.responsedata}>
           {responses.length > 0 ? (
@@ -91,12 +119,11 @@ function Response() {
               </thead>
               <tbody>
                 {responses.map((response, index) => {
-                  // Create an object for each response with label-value pairs
                   const responseMap = {};
                   response.responses.forEach((res) => {
-                    responseMap[res.label] = res.response; // Ensure 'res.response' contains the value
+                    responseMap[res.label] = res.response;
                   });
-                  console.log("Response Map:", responseMap); // Log the map to see if values are present
+                  console.log("Response Map:", responseMap);
 
                   return (
                     <tr key={response._id}>

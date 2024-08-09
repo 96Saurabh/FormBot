@@ -6,12 +6,13 @@ import { RiArrowDropDownLine, RiDeleteBin6Line } from "react-icons/ri";
 import { FiFolderPlus } from "react-icons/fi";
 import style from "./Workspace.module.css";
 import Modal from '../../model/Model';
-import { createFolder, getFolders, deleteFolder } from "../../../api/chat.api";
+import { createFolder, getFolders, deleteFolder, getFormById } from "../../../api/chat.api"; // Update API imports
 
 function Workspace() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [folders, setFolders] = useState([]);
   const [selectedFolder, setSelectedFolder] = useState(null);
+  const [selectedForm, setSelectedForm] = useState(null); // State for selected form
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate(); // Hook for redirection
@@ -19,6 +20,12 @@ function Workspace() {
   useEffect(() => {
     fetchFolders();
   }, []);
+
+  useEffect(() => {
+    if (selectedForm) {
+      fetchForm(selectedForm);
+    }
+  }, [selectedForm]);
 
   const fetchFolders = async () => {
     try {
@@ -29,6 +36,15 @@ function Workspace() {
       console.error("Error fetching folders:", error);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const fetchForm = async (formId) => {
+    try {
+      const response = await getFormById(formId);
+      console.log(response);
+    } catch (error) {
+      console.error("Error fetching form:", error);
     }
   };
 
@@ -63,7 +79,7 @@ function Workspace() {
 
   const handleLogout = () => {
     localStorage.clear(); // Clear all local storage data
-    navigate('/')
+    navigate('/');
   };
 
   const handleCreateTypebot = () => {
@@ -77,11 +93,10 @@ function Workspace() {
     }
   };
 
-
   const logout = () => {
     localStorage.clear();
     navigate("/login");
-};
+  };
 
   return (
     <div>
@@ -95,9 +110,7 @@ function Workspace() {
             <Link to="/setting">
               <span>Setting</span>
             </Link>
-            
-              <span onClick={logout}>Logout</span>
-            
+            <span onClick={logout}>Logout</span>
           </div>
         </div>
       </div>
@@ -136,6 +149,15 @@ function Workspace() {
             <h4 style={{ margin: "12px 0px 10px 22px" }}>Create a typebot</h4>
           </div>
         )}
+        <div className={style.createtypebotform}>
+          {selectedForm ? (
+            <h4 style={{ margin: "100px 5px 10px 25px", color: "white" }}>
+              {selectedForm.name}
+            </h4>
+          ) : (
+            <h4 style={{ margin: "100px 5px 10px 25px", color: "white" }}>New Form</h4>
+          )}
+        </div>
       </div>
 
       <Modal isOpen={isModalOpen} onClose={closeModal} onDone={handleDone} />

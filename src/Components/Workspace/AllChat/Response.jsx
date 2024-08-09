@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import style from './Response.module.css'; // Ensure this path is correct
 
-const URL = "http://localhost:8080/api/v1/chat/responses";
+const URL = "https://formbot-backend-5fip.onrender.com/api/v1/chat/responses";
 
 function Responses() {
   const [responses, setResponses] = useState([]);

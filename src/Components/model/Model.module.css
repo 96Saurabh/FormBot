@@ -13,7 +13,7 @@
   }
   
   .modalContent {
-    background: white;
+    background: rgba(24, 24, 27, 1);
     padding: 20px;
     border-radius: 8px;
     width: 400px;
@@ -23,11 +23,12 @@
     animation: fadeIn 0.3s ease; /* Optional: Adds a fade-in animation */
   }
   
-  .closeButton {
+  .closespan {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
+    top: -0.7rem;
+    left: 24.5rem;
+   
+    /* background: none; */
     border: none;
     font-size: 20px;
     cursor: pointer;
@@ -38,7 +39,22 @@
   .closeButton:hover {
     color: #000;
   }
-  
+
+  .buttonContainer{
+    display: flex;
+    margin: 2rem;
+    cursor: pointer;
+    gap: 12rem;
+  }
+
+  .doneButton:hover {
+    color: rgba(75, 131, 255, 1);
+  }
+
+  .cancelButton:hover {
+    color: rgba(75, 131, 255, 1);
+  }
+ 
   /* Optional: Fade-in animation for the modal */
   @keyframes fadeIn {
     from {
@@ -51,3 +67,15 @@
     }
   }
   
+  .modalContent input {
+    border-radius: 5px;
+    background: none;
+    border: none;
+    height: 55px;
+    font-size: 18px;
+    background-color: rgba(55, 55, 62, 1);
+    color: #ffffff;
+    padding: 5px 10px;
+   width: 100%;
+    flex-basis: 20%;
+  }

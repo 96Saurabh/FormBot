@@ -8,13 +8,12 @@
     gap: 10rem;
   }
   .header {
+    padding-left: 2.8rem;
     height: 100px;
     width: 150px;
     background-color: rgba(50, 50, 50, 1);
     border-radius: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+ 
   }
   
   table {

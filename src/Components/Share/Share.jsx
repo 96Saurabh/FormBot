@@ -11,13 +11,13 @@ function ShareButton() {
   const handleShareClick = async () => {
     try {
       // Fetch the shareable URL
-      const response = await axios.get(`http://localhost:8000/api/v1/chat/generate-shareable-url/${formId}`);
+      const response = await axios.get(`https://formbot-backend-5fip.onrender.com/api/v1/chat/generate-shareable-url/${formId}`);
       const url = response.data.shareableUrl;
       console.log("Form ID in ShareButton:", formId);
       setShareableUrl(url);
 
       // Fetch the form data
-      const formResponse = await axios.get(`http://localhost:8000/api/v1/chat/getsingle-form/${formId}`);
+      const formResponse = await axios.get(`https://formbot-backend-5fip.onrender.com/api/v1/chat/getsingle-form/${formId}`);
       const form = formResponse.data;
       setFormData(form);
       console.log("Form data:", form);

@@ -1,5 +1,5 @@
 import axios from "axios";
-const backendUrl = "http://localhost:8000/api/v1/from";
+const backendUrl = "https://formbot-backend-5fip.onrender.com/api/v1/from";
 
 export const createChat = async (chatPostPayload) => {
   try {

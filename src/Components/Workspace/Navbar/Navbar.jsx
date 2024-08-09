@@ -5,7 +5,7 @@ import { useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 
-const URL = "http://localhost:8080";
+const URL = "https://formbot-backend-5fip.onrender.com";
 
 function Navbar() {
   const [fromName, setFromName] = useState("");

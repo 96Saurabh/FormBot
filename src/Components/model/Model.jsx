@@ -14,8 +14,8 @@ function Modal({ isOpen, onClose, onDone }) {
   return (
     <div className={style.modalOverlay}>
       <div className={style.modalContent}>
-        <button className={style.closeButton} onClick={onClose}>X</button>
-        <h2>Create New Folder</h2>
+        <span className={style.closespan} onClick={onClose}>X</span>
+        <h3>Create New Folder</h3>
         <input
           type="text"
           placeholder="Enter folder name"
@@ -24,8 +24,8 @@ function Modal({ isOpen, onClose, onDone }) {
           className={style.inputField}
         />
         <div className={style.buttonContainer}>
-          <button className={style.doneButton} onClick={handleDone}>Done</button>
-          <button className={style.cancelButton} onClick={onClose}>Cancel</button>
+          <span className={style.doneButton} onClick={handleDone}>Done</span>
+          <span className={style.cancelButton} onClick={onClose}>Cancel</span>
         </div>
       </div>
     </div>
